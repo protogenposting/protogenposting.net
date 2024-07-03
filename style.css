@@ -1,16 +1,22 @@
 body {
-    background-color: powderblue;
-}
-h1 {
-    color: blue;
-}
-p {
-    color: red;
-    border: 3px solid powderblue;
-}
-.center {
+    background-color: rgb(199, 136, 120);
     margin: auto;
     width: 50%;
-    border: 3px solid green;
     padding: 10px;
+    font-family: sans-serif;
+}
+h1 {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+h2 {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+p {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
 }
