@@ -1,9 +1,16 @@
 body {
     background-color: powderblue;
-  }
-  h1 {
+}
+h1 {
     color: blue;
-  }
-  p {
+}
+p {
     color: red;
-  }
+    border: 3px solid powderblue;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
