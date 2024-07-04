@@ -2,6 +2,14 @@
 <html lang="en">
     <script>
         opacity = 0
+        splashText=[
+            "Now with 100% less sex jokes!",
+            "Featuring Dante from the hit Devil May Cry series!",
+            "Phil approves!",
+        ]
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
         function fade_in() {
             console.log(document.body.style.opacity)
             opacity = opacity + 0.01
@@ -10,6 +18,7 @@
         function main(){
             document.body.style.opacity=opacity
             setInterval(fade_in,16);
+            document.getElementById("splashText").innerText=splashText[getRandomInt(splashText.length)]
         }
     </script>
     <head>
@@ -18,11 +27,12 @@
     </head>
     <body onload="main()"> 
     <body>
-        <h1>Hello welcome to the NEW AND IMPROVED PROTOGEN POSTING SITE</h1>
-        <h2>NOW WITH 100% LESS GOOFY AHH-NESS</h2>
+        <h1>Hello welcome to the Protogen Posting website!</h1>
+        <h2 id="splashText">NOW WITH 100% LESS GOOFY AHH-NESS</h2>
         <p>This is just the homepage, below are links to everything else!<br><br><br><br><br></p>
         <h1>Pages:</h1>
         <a href="./about"><p>About me</p></a>
-        <a href="./games"><p>Games</p></a>
+        <a href="./games"><p>Games!</p></a>
+        <a href="./projects"><p>Projects</p></a>
     </body>
 </html>
