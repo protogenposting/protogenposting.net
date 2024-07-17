@@ -1,7 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <script>
+        class movingObject{
+            constructor(image,totalFrames){
+                this.x=-72
+                this.y=150
+                this.frame=0
+                this.image=image
+                this.fps=12
+                this.frameTimer=0
+                this.size=64
+                this.totalFrames=totalFrames
+                this.speed=1
+            }
+            
+            update(){
+                this.frameTimer++
+                if(this.frameTimer>60/this.fps)
+                {
+                    this.frame++
+                    if(this.frame>=this.totalFrames)
+                    {
+                        this.frame=0
+                    }
+                    this.frameTimer=0
+                }
+                this.x+=this.speed
+                if(this.x>canvas.width)
+                {
+                    objects.splice(objects.indexOf(this),1)
+                    delete this
+                }
+            }
+        }
+        objectSpawnTime=0
+
         opacity = 0
+
         splashText=[
             "Now with 100% less sex jokes!",
             "Featuring Dante from the hit Devil May Cry series!",
@@ -9,9 +44,12 @@
             "Come on, Jonathan, you H A T E F U L  S H R E W",
             "I'm going to execute msonic because he stole my wallet",
             "Now not being held hostage by a company!"
-        ]           
-        
-        imageIds=[
+        ]   
+        images=[
+
+        ]
+
+        objects=[
 
         ]
         
@@ -22,13 +60,13 @@
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
+
         function fade_in() {
-            console.log(document.body.style.opacity)
-            
             opacity = opacity + 0.01
 
             document.body.style.opacity=opacity
         }
+
         function load_image(_image,_id)
         {
             var image = new Image();
@@ -43,11 +81,32 @@
 
             src.appendChild(image);
 
-            imageIds.push(image)
+            return image
         }
+
+        function update_objects(){
+            console.log(objects)
+            for(i=0; i<objects.length; i++)
+            {
+                objects[i].update()
+                context.drawImage(objects[i].image, objects[i].frame*objects[i].size, 0, objects[i].size, objects[i].size, objects[i].x, objects[i].y,64,64);
+            }
+        }
+
         function loop() {
-            context.drawImage(imageIds[0], 10, 10);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            update_objects()
+
+            objectSpawnTime--
+            if(objectSpawnTime<=0)
+            {
+                objects.push(new movingObject(images[0],4))
+
+                objectSpawnTime=120
+            }
         }
+
         function main(){
             document.body.style.opacity=opacity
 
@@ -60,8 +119,8 @@
             canvas=document.getElementById("canvas")
 
             context=canvas.getContext('2d');
-
-            load_image("./images/protoWalk.png","proot")
+            
+            images[0]=load_image("./images/protoWalk.png","proot")
         }
     </script>
     <head>
