@@ -9,19 +9,59 @@
             "Come on, Jonathan, you H A T E F U L  S H R E W",
             "I'm going to execute msonic because he stole my wallet",
             "Now not being held hostage by a company!"
+        ]           
+        
+        imageIds=[
+
         ]
+        
+        canvas;
+
+        context;
+
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
         function fade_in() {
             console.log(document.body.style.opacity)
+            
             opacity = opacity + 0.01
+
             document.body.style.opacity=opacity
+        }
+        function load_image(_image,_id)
+        {
+            var image = new Image();
+
+            image.src = _image
+
+            image.style = "display: none;"
+
+            image.id = _id
+
+            var src = document.getElementById("body");
+
+            src.appendChild(image);
+
+            imageIds.push(image)
+        }
+        function loop() {
+            context.drawImage(imageIds[0], 10, 10);
         }
         function main(){
             document.body.style.opacity=opacity
+
             setInterval(fade_in,16);
+
+            setInterval(loop,16);
+
             document.getElementById("splashText").innerText=splashText[getRandomInt(splashText.length)]
+
+            canvas=document.getElementById("canvas")
+
+            context=canvas.getContext('2d');
+
+            load_image("./images/protoWalk.png","proot")
         }
     </script>
     <head>
@@ -31,13 +71,16 @@
     </head>
     <body onload="main()"> 
     <body>
-        <h1>Hello welcome to the Protogen Posting website!</h1>
-        <h2 id="splashText">NOW WITH 100% LESS GOOFY AHH-NESS</h2>
-        <p>This is just the homepage, below are links to everything else!<br><br><br><br><br></p>
-        <h1>Pages:</h1>
-        <a href="./about.html"><p>About me</p></a>
-        <a href="./games.html"><p>Games!</p></a>
-        <a href="./music.html"><p>Music</p></a>
-        <a href="./projects.html"><p>Projects</p></a>
+        <div id="body">
+            <h1>Hello welcome to the Protogen Posting website!</h1>
+            <h2 id="splashText">NOW WITH 100% LESS GOOFY AHH-NESS</h2>
+            <p>This is just the homepage, below are links to everything else!<br><br><br><br><br></p>
+            <h1>Pages:</h1>
+            <a href="./about.html"><p>About me</p></a>
+            <a href="./games.html"><p>Games!</p></a>
+            <a href="./music.html"><p>Music</p></a>
+            <a href="./projects.html"><p>Projects</p></a>
+            <canvas id="canvas" width="400" height="200" style="border:1px solid #000000;">\</canvas> 
+        </div>
     </body>
 </html>
