@@ -103,7 +103,7 @@
             objectSpawnTime--
             if(objectSpawnTime<=0)
             {
-                objects.push(new movingObject(images[0],4))
+                objects.push(new movingObject(images[getRandomInt(images.length)],4))
 
                 objectSpawnTime=120
             }
@@ -121,8 +121,15 @@
             canvas=document.getElementById("canvas")
 
             context=canvas.getContext('2d');
-            
-            images[0]=load_image("./images/protoWalk.png","proot")
+
+            imagesToLoad=[
+                "./images/protoWalk.png"
+            ]
+
+            for(i=0; i<imagesToLoad.length; i++)
+            {
+                images[i]=load_image(imagesToLoad[i],"proot")
+            }
         }
     </script>
     <head>
