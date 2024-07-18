@@ -9,7 +9,8 @@
                 this.image=image
                 this.fps=12
                 this.frameTimer=0
-                this.size=64
+                this.width=this.image.width
+                this.height=this.image.height
                 this.totalFrames=totalFrames
                 this.speed=1
             }
@@ -33,6 +34,21 @@
                 }
             }
         }
+        class imageToLoad{
+            constructor(src,totalFrames)
+            {
+                this.src=src
+                this.totalFrames=totalFrames
+            }
+        }
+        class loadedImage{
+            constructor(image,totalFrames)
+            {
+                this.image=image
+                this.totalFrames=totalFrames
+            }
+        }
+        
         objectSpawnTime=0
 
         opacity = 0
@@ -45,7 +61,8 @@
             "I'm going to execute msonic because he stole my wallet",
             "Now not being held hostage by a company!",
             "I like licking furry balls",
-            "\"Please let me out of the basement\" - ScratchGuy"
+            "\"Please let me out of the basement I don't want to make more ReZ ost\" - ScratchGuy",
+            "Be gay do crime"
         ]   
         images=[
 
@@ -73,7 +90,7 @@
         {
             var image = new Image();
 
-            image.src = _image
+            image.src = _image.src
 
             image.style = "display: none;"
 
@@ -83,7 +100,7 @@
 
             src.appendChild(image);
 
-            return image
+            return new loadedImage(image,_image.totalFrames)
         }
 
         function update_objects(){
@@ -91,19 +108,25 @@
             for(i=0; i<objects.length; i++)
             {
                 objects[i].update()
-                context.drawImage(objects[i].image, objects[i].frame*objects[i].size, 0, objects[i].size, objects[i].size, objects[i].x, objects[i].y,64,64);
+                context.drawImage(objects[i].image, objects[i].frame*(objects[i].width/objects[i].totalFrames), 0, objects[i].width/objects[i].totalFrames, objects[i].height, objects[i].x, objects[i].y,64,64);
             }
         }
 
         function loop() {
             context.clearRect(0, 0, canvas.width, canvas.height);
 
+            context.imageSmoothingEnabled = false
+
+            context['mozImageSmoothingEnabled'] = false
+
             update_objects()
 
             objectSpawnTime--
             if(objectSpawnTime<=0)
             {
-                objects.push(new movingObject(images[getRandomInt(images.length)],4))
+                imageSelected=images[getRandomInt(images.length)]
+
+                objects.push(new movingObject(imageSelected.image,imageSelected.totalFrames))
 
                 objectSpawnTime=120
             }
@@ -123,7 +146,8 @@
             context=canvas.getContext('2d');
 
             imagesToLoad=[
-                "./images/protoWalk.png"
+                new imageToLoad("./images/protoWalk.png",4),
+                new imageToLoad("./images/rezWalk.png",3)
             ]
 
             for(i=0; i<imagesToLoad.length; i++)
