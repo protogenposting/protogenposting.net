@@ -4,7 +4,6 @@
         class movingObject{
             constructor(image,totalFrames){
                 this.x=-72
-                this.y=150
                 this.frame=0
                 this.image=image
                 this.fps=12
@@ -13,6 +12,7 @@
                 this.height=this.image.height
                 this.totalFrames=totalFrames
                 this.speed=1
+                this.y=canvas.height-this.height
             }
             
             update(){
