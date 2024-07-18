@@ -48,7 +48,7 @@
                 this.totalFrames=totalFrames
             }
         }
-        
+
         objectSpawnTime=0
 
         opacity = 0
@@ -62,7 +62,16 @@
             "Now not being held hostage by a company!",
             "I like licking furry balls",
             "\"Please let me out of the basement I don't want to make more ReZ ost\" - ScratchGuy",
-            "Be gay do crime"
+            "Be gay do crime",
+            "War crimes! :P",
+            "If there's a hole, there's a goal!",
+            "THIS IS A QINTER ONLY ZONE. ALL MOONBLI AND WINTERWATCHERS WILL BE ELIMINATED. (/j)",
+            "I LOVE REZ!!!",
+            "Timbre moment",
+            "Buy Floral Kombat on steam! Coming never!",
+            "Friday night fuck you",
+            "everything here is 100% serious yep totally",
+            "Your honor, it was in minecraft!"
         ]   
         images=[
 
@@ -75,6 +84,18 @@
         canvas;
 
         context;
+
+        mouseX=0
+
+        mouseY=0
+        
+        document.addEventListener("mousemove",getMousePos)
+
+        function getMousePos(evt) {
+            var rect = canvas.getBoundingClientRect();
+            mouseX = evt.clientX - rect.left
+            mouseY = evt.clientY - rect.top
+        }
 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
@@ -113,6 +134,8 @@
         }
 
         function loop() {
+            document.getElementById("splashText").innerText=mouseX
+
             context.clearRect(0, 0, canvas.width, canvas.height);
 
             context.imageSmoothingEnabled = false
