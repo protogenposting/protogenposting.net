@@ -15,6 +15,10 @@
                 this.y=canvas.height-this.height
             }
             
+            getMouseInRect(){
+                return mouseX<this.x+64&&mouseY<this.y+64&&mouseX>this.x&&mouseY>this.y
+            }
+
             update(){
                 this.frameTimer++
                 if(this.frameTimer>60/this.fps)
@@ -27,7 +31,11 @@
                     this.frameTimer=0
                 }
                 this.x+=this.speed
-                if(this.x>canvas.width)
+                if(this.getMouseInRect())
+                {
+                    this.x-=this.speed
+                }
+                if(this.centerX-200>canvas.width)
                 {
                     objects.splice(objects.indexOf(this),1)
                     delete this
@@ -88,13 +96,13 @@
         mouseX=0
 
         mouseY=0
-        
-        document.addEventListener("mousemove",getMousePos)
 
         function getMousePos(evt) {
             var rect = canvas.getBoundingClientRect();
-            mouseX = evt.clientX - rect.left
-            mouseY = evt.clientY - rect.top
+            scaleX = canvas.width / rect.width,    
+            scaleY = canvas.height / rect.height;
+            mouseX = (evt.clientX - rect.left) * scaleX,
+            mouseY = (evt.clientY - rect.top) * scaleY
         }
 
         function getRandomInt(max) {
@@ -123,9 +131,13 @@
 
             return new loadedImage(image,_image.totalFrames)
         }
-
+        function draw_circle(x,y,radius)
+        {
+            context.beginPath();
+            context.arc(x, y, radius, 0, 2 * Math.PI);
+            context.stroke();
+        }
         function update_objects(){
-            console.log(objects)
             for(i=0; i<objects.length; i++)
             {
                 objects[i].update()
@@ -134,7 +146,16 @@
         }
 
         function loop() {
-            document.getElementById("pos").innerText=mouseY
+            try{
+                mouseX.toString()
+            }
+            catch(e)
+            {
+                mouseX=0
+                mouseY=0
+            }
+
+            document.addEventListener("mousemove",getMousePos)
 
             context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -198,7 +219,6 @@
             <a href="./games.html"><p>Games!</p></a>
             <a href="./music.html"><p>Music</p></a>
             <a href="./projects.html"><p>Projects</p></a>
-            <h2 id="pos">positoon</h2>
             <canvas id="canvas" width="400" height="200" style="border:1px">\</canvas> 
         </div>
     </body>
