@@ -88,6 +88,10 @@
         objects=[
 
         ]
+
+        pixels=[
+            
+        ]
         
         canvas;
 
@@ -164,6 +168,11 @@
             context['mozImageSmoothingEnabled'] = false
 
             update_objects()
+
+            for(i=0;i<pixels.length;i++)
+            {
+                draw_circle(pixels[i].x,pixels[i].y,0.1)
+            }
 
             objectSpawnTime--
             if(objectSpawnTime<=0)
