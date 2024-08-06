@@ -1,22 +1,22 @@
 body {
-    background-color: rgb(28, 7, 48);
+    background-color: rgb(15, 33, 66);
     margin: auto;
-    width: 75%;
+    width: 50%;
     padding: 10px;
     font-family: sans-serif;
 }
 h1 {
-    color: rgb(255, 139, 203);
+    color: rgb(139, 255, 255);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
 }
 h2 {
-    color: rgb(255, 139, 203);
+    color: rgb(139, 255, 255);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 p {
-    color: rgb(255, 139, 203);
+    color: rgb(139, 255, 255);
 }
 canvas {
     margin-left: 0%;
