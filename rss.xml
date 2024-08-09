@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Protogenposting home page</title>
+  <link>https://http://www.protogenposting.com</link>
+  <description>The website</description>
+  <item>
+    <title>Blogs</title>
+    <link>https://http://www.protogenposting.com/blogs.html</link>
+    <description>New blog on protogenposting.com!</description>
+  </item>
+</channel>
+
+</rss>
