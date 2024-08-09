@@ -212,6 +212,16 @@
                 images[i]=load_image(imagesToLoad[i],"proot")
             }
         }
+        function rss() {
+            // Get the text field
+            var copyText = "http://www.protogenposting.com/rss.xml";
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText);
+
+            // Alert the copied text
+            alert("Copied the text: " + copyText);
+        }
     </script>
     <head>
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -231,6 +241,7 @@
             <a href="./projects.html"><p>Projects</p></a>
             <a href="./blogs.html"><p>Blogs and Changelogs</p></a>
             <a href="./friend links/friends.html"><p>Cool People</p></a>
+            <button onclick="rss()">RSS feed</button>
             <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
         </div>
     </body>
