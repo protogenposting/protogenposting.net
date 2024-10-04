@@ -11,12 +11,12 @@ h1 {
     -webkit-text-stroke-color: black;
 }
 h2 {
-    color: rgb(255, 209, 139);
+    color: rgb(191, 255, 139);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 p {
-    color: rgb(255, 139, 139);
+    color: rgb(116, 84, 63);
 }
 canvas {
     margin-left: 0%;
