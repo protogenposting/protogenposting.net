@@ -18,6 +18,9 @@ h2 {
 p {
     color: rgb(255, 139, 139);
 }
+li {
+    color: rgb(255, 139, 139);
+}
 canvas {
     margin-left: 0%;
     width: 100%;
