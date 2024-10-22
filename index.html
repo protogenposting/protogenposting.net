@@ -22,10 +22,25 @@
                 this.totalFrames=totalFrames
                 this.speed=1
                 this.y=canvas.height-this.height
+                this.yDefault = this.y
+                this.yVelocity = 0
             }
             
             getMouseInRect(){
                 return mouseX<this.x+64&&mouseY<this.y+64&&mouseX>this.x&&mouseY>this.y
+            }
+
+            clicked(){
+                if(this.getMouseInRect())
+                {
+                    document.getElementById("explosion").load()
+                    document.getElementById("explosion").play()
+                    this.speed = 0
+                    this.image = grave.image
+                    this.totalFrames = 1
+                    this.width = 64
+                    this.height = 64
+                }
             }
 
             update(){
@@ -42,8 +57,21 @@
                 this.x+=this.speed
                 if(this.getMouseInRect())
                 {
-                    this.x-=this.speed
+                    this.yVelocity= -3
                 }
+                else
+                {
+                    this.yVelocity+=0.1
+                }
+
+                this.y += this.yVelocity
+
+                if(this.y>this.yDefault)
+                {
+                    this.yVelocity = 0
+                    this.y = this.yDefault
+                }
+
                 if(this.centerX-200>canvas.width)
                 {
                     objects.splice(objects.indexOf(this),1)
@@ -110,6 +138,8 @@
         mouseX=0
 
         mouseY=0
+        
+        grave=0
 
         function getMousePos(evt) {
             var rect = canvas.getBoundingClientRect();
@@ -171,6 +201,13 @@
 
             document.addEventListener("mousemove",getMousePos)
 
+            document.addEventListener("mousedown",evt => {
+                for(var i = 0; i < objects.length; i++)
+                {
+                    objects[i].clicked()
+                }
+            })
+
             context.clearRect(0, 0, canvas.width, canvas.height);
 
             context.imageSmoothingEnabled = false
@@ -196,6 +233,8 @@
         }
 
         function main(){
+            grave=load_image(new imageToLoad("./images/DEAD.png",4))
+
             document.body.style.opacity=opacity
 
             setInterval(fade_in,16);
@@ -213,7 +252,7 @@
                 new imageToLoad("./images/rezWalk.png",3),
                 new imageToLoad("./images/baseballcapWalk.png",5),
                 new imageToLoad("./images/timbreWalk.png",4),
-                new imageToLoad("./images/philWalk.png",4)
+                new imageToLoad("./images/philWalk.png",4),
             ]
 
             for(i=0; i<imagesToLoad.length; i++)
@@ -253,6 +292,7 @@
             <a href="./Weird Wiki Websites/main.html"><p>Weird Wikis</p></a>
             <a href="/rss.xml"><p>RSS</p></a>
             <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
+            <audio hidden = "hidden" id="explosion" src="sounds/vine-boom.mp3"></audio>
         </div>
     </body>
 </html>
