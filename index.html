@@ -190,6 +190,11 @@
         }
 
         function loop() {
+            if(document.getElementById("Theme").paused)
+            {
+                document.getElementById("Theme").play()
+            }
+
             try{
                 mouseX.toString()
             }
@@ -293,6 +298,7 @@
             <a href="/rss.xml"><p>RSS</p></a>
             <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
             <audio hidden = "hidden" id="explosion" src="sounds/vine-boom.mp3"></audio>
+            <audio hidden = "hidden" id="Theme" src="sounds/bgMusic/Main.ogg"></audio>
         </div>
     </body>
 </html>
