@@ -1,5 +1,7 @@
 {
     "type": "object",
-    "name":"Protogen Posting: The Website",
-    "description":"HI HI HI come to my website there's funny stuff there"
+    "author_name": "",
+    "author_url": "",
+    "provider_name": "",
+    "provider_url": ""
 }
