@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>YAP BOT</title>
+    <style>
+        p, h1 {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>SEND A MESSAGE AS YAP BOT</h1>
+        <input type="text" id="data" name="data"><br><br>
+        <button onclick="send()">send message</button>
+    </center>
+
+    <script>
+        function send()
+        {
+            const request = new XMLHttpRequest();
+            request.open("POST","https://discord.com/api/webhooks/1298297365136150610/SCdgmNhF5_uuDsv7w-ixCgIvcXE91Zvt_h2YsPtrc2atAhSTmG4MP5xFp49ihR8Av07V")
+            request.setRequestHeader('Content-type', 'application/json')
+            const params = {
+                username: "Yap Bot",
+                avater_url: "",
+                content: document.getElementById("data").value
+            }
+            request.send(JSON.stringify(params));
+        }
+    </script>
+</body>
+
+</html>
