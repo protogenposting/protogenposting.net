@@ -33,7 +33,9 @@
         {
             const request = new XMLHttpRequest();
             request.open("POST","https://discord.com/api/webhooks/1298297365136150610/SCdgmNhF5_uuDsv7w-ixCgIvcXE91Zvt_h2YsPtrc2atAhSTmG4MP5xFp49ihR8Av07V")
+            
             request.setRequestHeader('Content-type', 'application/json')
+            
             var value = document.getElementById("data").value
             
             for(var i = 0; i < bannedWords.length; i++)
@@ -50,6 +52,7 @@
                 avater_url: "",
                 content: value
             }
+
             request.send(JSON.stringify(params));
             document.getElementById("Output").innerText = "sent!"
         }
