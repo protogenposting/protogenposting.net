@@ -40,7 +40,7 @@
             
             for(var i = 0; i < bannedWords.length; i++)
             {
-                if(value.split(" ").includes(bannedWords[i]))
+                if(value.includes(bannedWords[i]))
                 {
                     document.getElementById("Output").innerText = "BANNED WORDS"
                     return 0;
