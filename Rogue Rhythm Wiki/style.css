@@ -7,16 +7,16 @@ body {
 }
 h1 {
     color: rgb(21, 255, 0);
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 h2 {
-    color: rgb(21, 255, 0);
+    color: rgb(43, 148, 34);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 p {
-    color: rgb(21, 255, 0);
+    color: rgb(43, 148, 34);
 }
 canvas {
     margin-left: 0%;
