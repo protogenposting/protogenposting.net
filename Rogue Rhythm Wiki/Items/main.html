@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Background Image</title>
+    <style>
+        /* CSS to style the table cell */
+        .cell-with-image {
+            background-image: url('your-image.jpg'); /* Replace with the path to your image */
+            background-size: cover; /* Adjusts the image to fully cover the cell */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            width: 150px; /* Set the desired width of the cell */
+            height: 100px; /* Set the desired height of the cell */
+            text-align: center; /* Centers the text horizontally */
+            vertical-align: middle; /* Centers the text vertically */
+            color: white; /* Set text color for visibility */
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td class="cell-with-image">Cell Content</td>
+            <td>Regular Cell</td>
+        </tr>
+    </table>
+</body>
+</html>
