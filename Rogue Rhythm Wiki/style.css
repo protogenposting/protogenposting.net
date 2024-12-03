@@ -18,10 +18,10 @@ h2 {
 p {
     color: rgb(43, 148, 34);
 }
-a:link { color: red;}
-a:visited {color: rgb(251, 255, 0);}
-a:hover {color: hotpink;}
-a:active {color: blue;}
+a:link { color: rgb(43, 148, 34)}
+a:visited {color: rgb(43, 148, 34);}
+a:hover {color:  rgb(21, 255, 0)}
+a:active {color: rgb(255, 0, 0)}
 
 canvas {
     margin-left: 0%;
