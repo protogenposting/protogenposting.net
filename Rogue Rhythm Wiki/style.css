@@ -23,6 +23,10 @@ a:visited {color: rgb(43, 148, 34);}
 a:hover {color:  rgb(21, 255, 0)}
 a:active {color: rgb(255, 0, 0)}
 
+img.yourimage { 
+    content: url('#');
+}
+
 canvas {
     margin-left: 0%;
     width: 100%;
