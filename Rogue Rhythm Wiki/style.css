@@ -21,7 +21,7 @@ p {
 a:link { color: rgb(43, 148, 34)}
 a:visited {color: rgb(43, 148, 34);}
 a:hover {color:  rgb(21, 255, 0)}
-a:active {color: rgb(43, 148, 34)}
+a:active {color: rgb(255, 0, 0)}
 
 canvas {
     margin-left: 0%;
