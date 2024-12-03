@@ -23,12 +23,6 @@ a:visited {color: rgb(43, 148, 34);}
 a:hover {color:  rgb(21, 255, 0)}
 a:active {color: rgb(255, 0, 0)}
 
-<style>
-img.yourimage {content: url("../Rogue Rhythm Wiki/Characters/Cassy.html");}
-
-<img class="yourimage"></img>
-</style>
-
 canvas {
     margin-left: 0%;
     width: 100%;
