@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/style.css">
+        <title>Ao3inator</title>
+    </head>
+    <script>
+        function sendToAo3() {
+            var found = false
+
+            const timeout = setTimeout(function(){
+                try{
+                    let link = "https://archiveofourown.org/works/"+Math.round(Math.random() * 61123210)
+
+                    const myRequest = new Request(link);
+
+                    console.log(link)
+
+                    fetch(link)
+                        .then((response) => {
+                            console.log(response.status)
+                            console.log(link)
+                            if(response.status == 200)
+                            {
+                                window.location.replace(link)
+                                found = true
+                            }
+                        })
+                }
+                catch(e)
+                {
+
+                }
+            }, 16);
+
+            if(found)
+            {
+                clearTimeout(timeout)
+            }
+        }
+    </script>
+    <body>
+        <div class="center">
+            <p>AO3 ROULLETTE</p>
+            <p>Click this button for a random ao3 story!</p>
+            <button onclick="sendToAo3()">:3</button>
+        </div>
+    </body>
+</html>
