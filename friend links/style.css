@@ -18,6 +18,20 @@ h2 {
 p {
     color: rgb(153, 255, 139);
 }
+
+a:link {
+    color: rgb(139, 176, 255);
+}
+a:visited {
+    color: rgb(195, 214, 255);
+}
+a:hover {
+    color: rgb(42, 109, 255);
+}
+a:active {
+    color: rgb(255, 255, 255);
+}
+
 canvas {
     margin-left: 0%;
     width: 100%;
