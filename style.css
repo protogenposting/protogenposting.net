@@ -5,6 +5,20 @@ body {
     padding: 10px;
     font-family: sans-serif;
 }
+
+a:link {
+    color: rgb(231, 255, 96);
+}
+a:visited {
+    color: rgb(231, 255, 96);
+}
+a:hover {
+    color: rgb(244, 255, 181);
+}
+a:active {
+    color: rgb(255, 255, 255);
+}
+
 h1 {
     color: rgb(221, 255, 28);
 }
@@ -15,18 +29,6 @@ p {
     color: rgb(255, 166, 0);
 }
 
-a:link {
-    color: rgb(231, 255, 96);
-}
-a:visited {
-    color: rgb(231, 255, 96);
-}
-a:hover {
-    color: rgb(231, 255, 96);
-}
-a:active {
-    color: rgb(255, 255, 255);
-}
 
 canvas {
     margin-left: 0%;
