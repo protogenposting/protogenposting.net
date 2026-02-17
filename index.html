@@ -33,13 +33,30 @@
             clicked(){
                 if(this.getMouseInRect())
                 {
-                    document.getElementById("explosion").load()
-                    document.getElementById("explosion").play()
-                    this.speed = 0
-                    this.image = grave.image
-                    this.totalFrames = 1
-                    this.width = 64
-                    this.height = 64
+                    if (this.speed != 0)
+                    {
+                        kills += 1
+
+                        if (kills == 4)
+                        {
+                            document.getElementById("secretFound").load()
+                            document.getElementById("secretFound").play()
+
+                            this.image = secretPassword.image
+                        }
+                        else
+                        {
+                            document.getElementById("explosion").load()
+                            document.getElementById("explosion").play()
+
+                            this.image = grave.image
+                        }
+
+                        this.speed = 0
+                        this.totalFrames = 1
+                        this.width = 64
+                        this.height = 64
+                    }
                 }
             }
 
@@ -75,7 +92,7 @@
                 if(this.centerX-200>canvas.width)
                 {
                     objects.splice(objects.indexOf(this),1)
-                    delete this
+                    // delete this
                 }
             }
         }
@@ -97,6 +114,8 @@
         objectSpawnTime=0
 
         opacity = 0
+
+        kills = 0
 
         splashText=[
             "Now with 100% less sex jokes!",
@@ -197,6 +216,8 @@
         
         grave=0
 
+        secretPassword = 0
+
         function getMousePos(evt) {
             var rect = canvas.getBoundingClientRect();
             scaleX = canvas.width / rect.width,    
@@ -290,6 +311,8 @@
 
         function main(){
             grave=load_image(new imageToLoad("./images/DEAD.png",4))
+
+            secretPassword=load_image(new imageToLoad("./images/secretCode.png",1))
 
             document.body.style.opacity=opacity
 
@@ -391,12 +414,21 @@
             <a href="./blogs.html"><p>Blogs and Changelogs</p></a>
             <a href="./Weird Wiki Websites/main.html"><p>Weird Wikis (W.I.P)</p></a>
             <a href="./buttons.html"><p>Buttons!</p></a>
-            <a href="./prototype/prototype.html" class="shake-text"><p>me :]</p></a><br>
+            <a href="./prototype/prototypeSecret.html" class="DELETE"><p>Prototype</p></a><br>
+            <a href="./prototype/prototype.html" class="shake-text"><p>???</p></a><br>
             <iframe src="https://discord.com/widget?id=1035294886578098198&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
-            <a href="./prototype.html"><p>???</p></a>
             <audio hidden = "hidden" id="explosion" src="sounds/vine-boom.mp3"></audio>
+            <audio hidden = "hidden" id="secretFound" src="sounds/Unnamed.wav"></audio>
 
         </div>
     </body>
 </html>
+
+<script>
+    if (!localStorage.prototypeUnlocked)
+    {
+        const elem = document.querySelector('.DELETE');
+        elem.parentNode.removeChild(elem)
+    }
+</script>

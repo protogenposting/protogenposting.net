@@ -1,18 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="./style.css">
         <title>Prototype</title>
     </head>
     <body>
         <div class="center">
             <a href="./"><h1>Click here to go back</h1></a>
-            <h1>Games:</h1>
-            <a href="./games subpages/ONAP.html"><p>One Night At Puggo's (RELEASED)</p></a>
-            <a href="./games subpages/OCC.html"><p>Olivia's Cleanup Crew (W.I.P.)</p></a>
-            <a href="https://gamejolt.com/games/rogue/938197"><p>Rogue Rhythms (RELEASED)</p></a>
-            <a href="./games subpages/timbre.html"><p>Timbre (RELEASED)</p></a>
-            <a href="./games subpages/floralKombat.html"><p>Floral Kombat (W.I.P)</p></a>
+
+            <p>Hello?</p>
+
+            <p>Can you read this properly</p>
+
+            <p>Are we... connected?</p>
+
+            <p>Good good... I'm just going to need the encryption key from you :]</p>
+
+            <input id="password" name="password">
         </div>
     </body>
 </html>
+
+<script>
+    // Get the input field element
+    var input = document.getElementById("password");
+
+    // Add an event listener for the 'keydown' event
+    input.addEventListener("keydown", function(event) {
+        // Check if the key pressed is "Enter"
+        if (event.key === "Enter") {
+            // Prevent the default form submission behavior (if the input is in a form)
+            event.preventDefault();
+            // Call the function you want to run
+            myFunction();
+        }
+    });
+
+    // The function you want to execute
+    function myFunction() {
+        var inputValue = document.getElementById("password").value;
+        if (inputValue == ">:0)")
+        {
+            alert("A secret was unlocked, return to main");
+
+            localStorage.prototypeUnlocked = true
+        }
+    }
+</script>
