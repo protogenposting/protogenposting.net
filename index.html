@@ -317,17 +317,61 @@
                 images[i]=load_image(imagesToLoad[i],"proot")
             }
         }
-        function rss() {
-            // Get the text field
-            var copyText = "http://www.protogenposting.com/rss.xml";
-
-            // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText);
-
-            // Alert the copied text
-            alert("Copied the text: " + copyText);
-        }
     </script>
+    <style>
+        .shake-text {
+            display: inline-block;
+            transition: transform 1s ease-out;
+        }
+    </style>
+
+    <script>
+        var currentEvent;
+
+        var offset = {x:0, y:0}
+
+        window.addEventListener('mousemove', (e) => {
+            currentEvent = e
+        });
+
+        setInterval(shakeLoop,16);
+
+        function shakeLoop(){
+            const text = document.querySelector('.shake-text');
+
+            const rect = text.getBoundingClientRect();
+            const textX = rect.left + rect.width / 2;
+            const textY = rect.top + rect.height / 2;
+
+            // Calculate distance
+            const diffX = currentEvent.clientX - textX - offset.x;
+            const diffY = currentEvent.clientY - textY - offset.y;
+
+            const dist = 200
+
+            // Shake intensity based on distance (closer = more shake)
+            var speedX = (dist - Math.abs(diffX)) * Math.sign(diffX) * 10
+
+            var speedY = (dist - Math.abs(diffY)) * Math.sign(diffY) * 10
+
+            if (Math.abs(diffX- offset.x) < dist && Math.abs(diffY) < dist) {
+                if (Math.abs(speedX) != Math.abs(diffX)) {
+                    offset.x -= speedX
+                }
+                if (Math.abs(speedY) != Math.abs(diffY)) {
+                    offset.y -= speedY
+                }
+            } else {
+                offset.x = 0
+
+                offset.y = 0
+            }
+
+            text.style.transform = `translate(${offset.x}px, ${offset.y}px)`
+        }
+
+    </script>
+
     <head>
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
         <link rel="stylesheet" href="style.css">
@@ -345,15 +389,14 @@
             <a href="./music.html"><p>Music</p></a>
             <a href="./projects.html"><p>Projects</p></a>
             <a href="./blogs.html"><p>Blogs and Changelogs</p></a>
-            <a href="./friend links/friends.html"><p>Cool People</p></a>
             <a href="./Weird Wiki Websites/main.html"><p>Weird Wikis (W.I.P)</p></a>
             <a href="./buttons.html"><p>Buttons!</p></a>
-            <a href="/rss.xml"><p>RSS (W.I.P)</p></a>
-            <h1>Cordial Studio Wikis:</h1>
-            <a href="Rogue Rhythm Wiki\main.html"><p>Rogue Rhythm</p></a>
-            <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
-            <audio hidden = "hidden" id="explosion" src="sounds/vine-boom.mp3"></audio>
+            <a href="./prototype/prototype.html" class="shake-text"><p>me :]</p></a><br>
             <iframe src="https://discord.com/widget?id=1035294886578098198&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            <canvas id="canvas" width="800" height="200" style="border:1px">\</canvas> 
+            <a href="./prototype.html"><p>???</p></a>
+            <audio hidden = "hidden" id="explosion" src="sounds/vine-boom.mp3"></audio>
+
         </div>
     </body>
 </html>

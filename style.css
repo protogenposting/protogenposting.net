@@ -7,7 +7,7 @@ body {
     background-size: cover;
     min-height: 1080px;
     margin: auto;
-    width: 50%;
+    width: 75%;
     padding: 10px;
     font-family: sans-serif;
 }
@@ -37,9 +37,9 @@ p {
 
 
 canvas {
-    margin-left: 0%;
-    width: 100%;
-    padding: 3px;
+    margin-left: -25%;
+    width: 141%;
+    padding: 0px;
     font-family: sans-serif;
     image-rendering: optimizeSpeed; 
     image-rendering: -moz-crisp-edges; 
