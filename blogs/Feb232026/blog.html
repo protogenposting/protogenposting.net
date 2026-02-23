@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/blogs/style.css">
+        <title>Blog</title>
+    </head>
+    <body>
+        <div class="center">
+            <a href="/blogs.html"><h1>Click here to go back</h1></a>
+            <h2>Makin a Website!</h2>
+            <p>Hey guys! This is my epic tutorial on how to host a personal website on github pages! (ITS FREEEEEE)</p>
+            <p>I'll take you through all the setup steps, as well as a small guide to basic html and css customization!</p>
+            <p>This should be just enough to get you started, have fun!</p>
+            <h2>Setting up the repository</h2>
+            <p>Head over to <a href="https://github.com/">Github</a> and create an account. You should be on a page after you login</p>
+            <p>Click the + icon on the top of the screen and press "New Repository", make sure to make it public!</p>
+            <p>Once you're on your repository page, press the "Add a File" button next to the big green "<> Code" button and create a file. Name it index.html and add some basic testing text. Commit the changes.</p>
+            <p>Once this is created, click the settings icon on the top of the page. Once you're in settings go to the "Pages" tab</p>
+            <p>Click "None" under the branch section and select main. Press save</p>
+            <p>Return back to the main page of your repository, you should now see a "Deployments" tap on the side bar. Click that and you should see the link to your website. Test to make sure it works!</p>
+            <p>If you did it all right you should now have a website published! Now onto making it look... not shitty</p>
+            <p>(Psst! if you want to create files on your website and manage your website from your computer use github desktop! Clone the repository you just created onto your computer after following <a href="https://docs.github.com/en/desktop/overview/getting-started-with-github-desktop">This tutorial!</a>)</p>
+
+            <h2>Basic Tags</h2>
+            <p>Tip: you can press f12 to view the source code of this page, use this to learn how to create these specific tags!</p>
+            <p>This is a paragraph tag. It's what you use to type most of your documents</p>
+            <p><b>This is a bold tag inside a paragraph tag. Tags can go inside of other tags <i>infinitely!</i></b></p>
+            <p>Here's an image:'</p>
+            <img src="/images/DEAD.png">
+            <p>Upload images to your repository first before linking them like this!</p>
+            <p>I recommend making an images folder to store them all</p>
+            <h1>Here's a HEADER OUUUUU</h1>
+            <h2>Headers also come in</h2>
+            <h3>Multiple</h3>
+            <h4>Sizes!</h4>
+
+            <h2>Style!!!</h2>
+            <p>Let's first add a header to our page:</p>
+
+            <pre>
+                &#x3C;head&#x3E;
+                    &#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;/style.css&#x22;&#x3E;
+                    &#x3C;title&#x3E;Page Title Here&#x3C;/title&#x3E;
+                &#x3C;/head&#x3E;
+            </pre>
+
+            <p>Now our page will say what it is on the tab!</p>
+            <p>The <code>/style.css</code> bit lets use create our very own STYLE SHEET</p>
+            <p>Let's now create that file (called style.css) and add some code to it!</p>
+
+            <p>Let's start by changing the background color</p>
+            <pre>
+                body {
+                    background-color: rgb(6, 25, 66);
+                }
+            </pre>
+            <p>Lookin good!</p>
+
+            <p>Let's add a few more fancy things like margins to make the page look better!</p>
+
+            <pre>
+                body {
+                    background-color: rgb(6, 25, 66);
+                    min-height: 1080px;
+                    margin: auto;
+                    width: 75%;
+                    padding: 10px;
+                    font-family: sans-serif;
+                }
+            </pre>
+
+            <p>Actually, the background is boring, LETS MAKE IT AN IMAGE</p>
+
+            <pre>
+                body {
+                    background-image: url("./images/bg.png");
+                    background-attachment: fixed;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    min-height: 1080px;
+                    margin: auto;
+                    width: 75%;
+                    padding: 10px;
+                    font-family: sans-serif;
+                }
+            </pre>
+
+            <p>Lookin great!</p>
+
+            <p>Lets do some more styling and change how the text color looks!</p>
+
+            <pre>
+                a:link {
+                    color: rgb(255, 166, 0);
+                }
+                a:visited {
+                    color: rgb(255, 81, 0);
+                }
+                a:hover {
+                    color: rgb(221, 255, 28);
+                }
+                a:active {
+                    color: rgb(255, 255, 255);
+                }
+
+                h1 {
+                    color: rgb(221, 255, 28);
+                }
+                h2 {
+                    color: rgb(255, 166, 0);
+                }
+                p {
+                    color: rgb(255, 166, 0);
+                }
+            </pre>
+
+            <p>Very nice :3</p>
+
+            <p>Should be enough, have fun!</p>
+        </div>
+    </body>
+</html>
