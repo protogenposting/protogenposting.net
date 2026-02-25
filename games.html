@@ -8,6 +8,7 @@
         <div class="center">
             <p>(Games do not work well on mobile devices)</p>
             <a href="./index.html"><h1>Click here to go back</h1></a>
+            <a href="./game files/PROTONIGHT/Five Nights At Prototypes.html" class="DELETE"><p>PipnPug - Downhill racing!</p></a>
             <a href="./game files/Pipnpug/pipnpug.html"><p>PipnPug - Downhill racing!</p></a>
             <a href="./game files/Raw Speed/index.html"><p>Raw Speed</p></a>
             <a href="./game files/slag shooter/index.html"><p>Slag Shooter</p></a>
@@ -17,3 +18,11 @@
         </div>
     </body>
 </html>
+
+<script>
+    if (!localStorage.nightComplete)
+    {
+        const elem = document.querySelector('.DELETE');
+        elem.parentNode.removeChild(elem)
+    }
+</script>
