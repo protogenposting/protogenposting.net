@@ -21,9 +21,9 @@
                 this.height=this.image.height
                 this.totalFrames=totalFrames
                 this.speed=2
-                if(localStorage.secret2 == true)
+                if(localStorage.secret2)
                 {
-                    console.log("SPEED UP")
+                    // console.log("SPEED UP")
 
                     this.speed=10
                 }
@@ -41,7 +41,7 @@
                 {
                     if (this.speed != 0)
                     {
-                        if(localStorage.secret2 == true)
+                        if(localStorage.secret2)
                         {
                             window.open("protogenposting.com/game files/PROTONIGHT.html")
                         }
@@ -86,7 +86,7 @@
                 if(this.getMouseInRect())
                 {
                     this.yVelocity= -3
-                    if(localStorage.secret2 == true && this.speed > 0)
+                    if(localStorage.secret2 && this.speed > 0)
                     {
                         this.speed*=-1
                     }
