@@ -21,6 +21,10 @@
                 this.height=this.image.height
                 this.totalFrames=totalFrames
                 this.speed=2
+                if(localStorage.secret2 == true)
+                {
+                    this.speed=10
+                }
                 this.y=canvas.height-this.height
                 this.yDefault = this.y
                 this.yVelocity = 0
@@ -35,6 +39,11 @@
                 {
                     if (this.speed != 0)
                     {
+                        if(localStorage.secret2 == true)
+                        {
+                            window.open("protogenposting.com/game files/PROTONIGHT.html")
+                        }
+
                         kills += 1
 
                         if (kills == 4)
@@ -75,6 +84,10 @@
                 if(this.getMouseInRect())
                 {
                     this.yVelocity= -3
+                    if(localStorage.secret2 == true && this.speed > 0)
+                    {
+                        this.speed*=-1
+                    }
                 }
                 else
                 {
@@ -403,7 +416,7 @@
     <body onload="main()"> 
     <body>
         <div id="body">
-            <h1>Hello welcome to the Protogen Posting website!</h1>
+            <h1>Hello welcome to the Prototype Posting website!</h1>
             <h2 id="splashText">↻</h2>
             <p>This is just the homepage, below are links to everything else!</p>
             <h1>Pages:</h1>
