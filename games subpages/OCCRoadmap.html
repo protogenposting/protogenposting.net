@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../style.css">
+        <title>Projects</title>
+    </head>
+    <body>
+        <div class="center">
+            <a href="/projects.html"><h1>Click here to go back</h1></a>
+            <p>Here is features we plan on adding in the future so you can get a rough estimate of the development time</p>
+            <p>Coding Features (Prototype)</p>
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Difficulty</th>
+                        <th>Progress</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mabel's Full Moveset</td>
+                        <td>Easy</td>
+                        <td>33%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Fear</td>
+                        <td>Medium</td>
+                        <td>10%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Customizable Lobbies</td>
+                        <td>Easy</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Settings For Hosting</td>
+                        <td>Easy</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Stunning</td>
+                        <td>Easy</td>
+                        <td>0%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Character Interactions</td>
+                        <td>Easy</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Defects (Curses)</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Televisions/Memories (Upgrades)</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Character Customization</td>
+                        <td>Easy</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Charms</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Bill's Full Moveset</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>AAAnnie's Full Moveset</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Bosses</td>
+                        <td>Medium</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Art/Story Features (Sleepy)</p>
+            <table class="sortable">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Difficulty</th>
+                        <th>Progress</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Template Rig</td>
+                        <td>Hard</td>
+                        <td>30%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td>Main Plot</td>
+                        <td>-</td>
+                        <td>50%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Vale Personality</td>
+                        <td>-</td>
+                        <td>0%</td>
+                        <td>Low</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+document.addEventListener('click', function (e) {
+  try {
+    function findElementRecursive(element, tag) {
+      return element.nodeName === tag ? element :
+       findElementRecursive(element.parentNode, tag)
+    }
+    var descending_th_class = ' dir-d '
+    var ascending_th_class = ' dir-u '
+    var ascending_table_sort_class = 'asc'
+    var regex_dir = / dir-(u|d) /
+    var regex_table = /\bsortable\b/
+    var alt_sort = e.shiftKey || e.altKey
+    var element = findElementRecursive(e.target, 'TH')
+    var tr = findElementRecursive(element, 'TR')
+    var table = findElementRecursive(tr, 'TABLE')
+    function reClassify(element, dir) {
+      element.className = element.className.replace(regex_dir, '') + dir
+    }
+    function getValue(element) {
+      return (
+        (alt_sort && element.getAttribute('data-sort-alt')) ||
+      element.getAttribute('data-sort') || element.innerText
+      )
+    }
+    if (regex_table.test(table.className)) {
+      var column_index
+      var nodes = tr.cells
+      for (var i = 0; i < nodes.length; i++) {
+        if (nodes[i] === element) {
+          column_index = element.getAttribute('data-sort-col') || i
+        } else {
+          reClassify(nodes[i], '')
+        }
+      }
+      var dir = descending_th_class
+      if (
+        element.className.indexOf(descending_th_class) !== -1 ||
+        (table.className.indexOf(ascending_table_sort_class) !== -1 &&
+          element.className.indexOf(ascending_th_class) == -1)
+      ) {
+        dir = ascending_th_class
+      }
+      reClassify(element, dir)
+      var org_tbody = table.tBodies[0]
+      var rows = [].slice.call(org_tbody.rows, 0)
+      var reverse = dir === ascending_th_class
+      rows.sort(function (a, b) {
+        var x = getValue((reverse ? a : b).cells[column_index])
+        var y = getValue((reverse ? b : a).cells[column_index])
+        return isNaN(x - y) ? x.localeCompare(y) : x - y
+      })
+      var clone_tbody = org_tbody.cloneNode()
+      while (rows.length) {
+        clone_tbody.appendChild(rows.splice(0, 1)[0])
+      }
+      table.replaceChild(clone_tbody, org_tbody)
+    }
+  } catch (error) {
+  }
+});
+</script>

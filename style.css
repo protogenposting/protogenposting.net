@@ -48,3 +48,51 @@ canvas {
     image-rendering: optimize-contrast; 
     -ms-interpolation-mode: nearest-neighbor;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.sortable th {
+    cursor: pointer;
+}
+.sortable th.no-sort {
+    pointer-events: none;
+}
+.sortable th::after,
+.sortable th::before {
+    transition: color 0.2s ease-in-out;
+    font-size: 1.2em;
+    color: transparent;
+}
+.sortable th::after {
+    margin-left: 3px;
+    content: '\025B8';
+}
+.sortable th:hover::after {
+    color: inherit;
+}
+.sortable th.dir-d::after {
+    color: inherit;
+    content: '\025BE';
+}
+.sortable th.dir-u::after {
+    color: inherit;
+    content: '\025B4';
+}
